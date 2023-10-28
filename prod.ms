@@ -97,6 +97,7 @@ sub start_simp
   2000 6051 6555 7236 6016 7296 frame_0..4 # close
   return
 
+# SUB 7
 sub triple_caw
   200 6051 6555 7236 6016 7296 0 0 0 0 0 0 0 frame_0..11 # neutral
   
