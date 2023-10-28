@@ -1,0 +1,111 @@
+0000:                      -- # Sequence 0
+0000:                      -- begin
+0000:                      -- #  2000 5632 4416 4359 frame_0..2 # Look R, lift up
+0000:                      -- #  500 6773 8000 5533 5184 6208 8000 frame_0..5 # down caw
+0000:                      -- #  1500 6470 6729 6923 5765 7259 0 frame_0..5 # close
+0000:                      -- #  1000 6773 8000 4946 5184 6208 frame_0..4 # caw again
+0000:                      -- #  1000 6261 4624 5024 6016 7193 frame_0..4 # look R,body neutral
+0000:                      -- #  1500 5989 6468 7334 5587 frame_0..3 # look L, wing up
+0000:                      -- #  2500 5632 5303 5651 6016 frame_0..3 # body up, wing down
+0000:                      -- #  500 6525 8000 5005 5184 6208 frame_0..4 # caw
+0000:                      -- #  2000 6051 6555 7236 6016 7296 frame_0..4 # close
+0000: 060000               -- repeat
+0003:                      -- 
+0003:                      -- # SUB 0
+0003:                      -- sub frame_0..11
+0003: 020B2A               --   11 servo
+0006: 020A2A               --   10 servo
+0009: 02092A               --   9 servo
+000C: 02082A               --   8 servo
+000F: 02072A               --   7 servo
+0012: 02062A               --   6 servo
+0015: 02052A               --   5 servo
+0018: 02042A               --   4 servo
+001B: 02032A               --   3 servo
+001E: 02022A               --   2 servo
+0021: 02012A               --   1 servo
+0024: 02002A               --   0 servo
+0027:                      --   #delay
+0027: 05                   --   return
+0028:                      -- 
+0028:                      -- # SUB 1
+0028:                      -- sub frame_1_2
+0028: 02022A               --   2 servo
+002B: 02012A               --   1 servo
+002E:                      --   #delay
+002E: 05                   --   return
+002F:                      -- 
+002F:                      -- # SUB 2
+002F:                      -- sub frame_0..2
+002F: 02022A               --   2 servo
+0032: 02012A               --   1 servo
+0035: 02002A               --   0 servo
+0038: 08                   --   delay
+0039: 05                   --   return
+003A:                      -- 
+003A:                      -- # SUB 3
+003A:                      -- sub frame_0..5
+003A: 02052A               --   5 servo
+003D: 02042A               --   4 servo
+0040: 02032A               --   3 servo
+0043: 02022A               --   2 servo
+0046: 02012A               --   1 servo
+0049: 02002A               --   0 servo
+004C: 08                   --   delay
+004D: 05                   --   return
+004E:                      -- 
+004E:                      -- # SUB 4
+004E:                      -- sub frame_0..4
+004E: 02042A               --   4 servo
+0051: 02032A               --   3 servo
+0054: 02022A               --   2 servo
+0057: 02012A               --   1 servo
+005A: 02002A               --   0 servo
+005D: 08                   --   delay
+005E: 05                   --   return
+005F:                      -- 
+005F:                      -- # SUB 5
+005F:                      -- sub frame_0..3
+005F: 02032A               --   3 servo
+0062: 02022A               --   2 servo
+0065: 02012A               --   1 servo
+0068: 02002A               --   0 servo
+006B: 08                   --   delay
+006C: 05                   --   return
+006D:                      -- 
+006D:                      -- ## Custom Methods #####################
+006D:                      -- #######################################
+006D:                      -- 
+006D:                      -- # SUB 6
+006D:                      -- sub neutral
+006D: 03182F192E1838178017F91B000000000000000000000000000080 --   6447 6190 5944 6016 7161 0 0 0 0 0 0 0 frame_0..11
+0088: 01B80B08             --   3000 delay
+008C: 05                   --   return
+008D:                      -- 
+008D:                      -- # SUB 7
+008D:                      -- sub look_left
+008D: 03041F1CF41C81       --   7199 7412 frame_1_2
+0094: 01DC0508             --   1500 delay
+0098: 05                   --   return
+0099:                      -- 
+0099:                      -- # SUB 8
+0099:                      -- sub blink
+0099: 02FF35               --   0xFF serial_send_byte
+009C: 030484036400         --   900 100
+00A2: 3008                 --   led_on delay
+00A4: 3108                 --   led_off delay
+00A6: 05                   --   return
+00A7:                      -- 
+00A7:                      -- 
+
+Subroutines:
+Hex Decimal Address Name
+00  000     0003    FRAME_0..11
+01  001     0028    FRAME_1_2
+02  002     002F    FRAME_0..2
+03  003     003A    FRAME_0..5
+04  004     004E    FRAME_0..4
+05  005     005F    FRAME_0..3
+06  006     006D    NEUTRAL
+07  007     008D    LOOK_LEFT
+08  008     0099    BLINK
