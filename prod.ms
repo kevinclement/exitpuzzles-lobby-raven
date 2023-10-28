@@ -97,6 +97,22 @@ sub start_simp
   2000 6051 6555 7236 6016 7296 frame_0..4 # close
   return
 
+sub triple_caw
+  200 6051 6555 7236 6016 7296 0 0 0 0 0 0 0 frame_0..11 # neutral
+  
+  500 6773 8000 5533 5184 6208 frame_0..4 # down caw
+  0x31 send_caw_to_pi # 'caw1'
+  2000 6051 6555 7236 6016 7296 frame_0..4 # close
+
+  500 6773 8000 5533 5184 6208 frame_0..4 # down caw
+  0x32 send_caw_to_pi # 'caw2'
+  2000 6051 6555 7236 6016 7296 frame_0..4 # close
+
+  500 6773 8000 5533 5184 6208 frame_0..4 # down caw
+  0x31 send_caw_to_pi # 'caw1'
+  2000 6051 6555 7236 6016 7296 frame_0..4 # close
+
+  return
 
 sub send_caw_to_pi
   # Send txt 'caw2', have to load it backwords due to programming language
