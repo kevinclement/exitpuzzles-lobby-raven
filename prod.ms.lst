@@ -1,0 +1,155 @@
+0000:                      -- # SUB 0
+0000:                      -- sub frame_0..11
+0000: 020B2A               --   11 servo
+0003: 020A2A               --   10 servo
+0006: 02092A               --   9 servo
+0009: 02082A               --   8 servo
+000C: 02072A               --   7 servo
+000F: 02062A               --   6 servo
+0012: 02052A               --   5 servo
+0015: 02042A               --   4 servo
+0018: 02032A               --   3 servo
+001B: 02022A               --   2 servo
+001E: 02012A               --   1 servo
+0021: 02002A               --   0 servo
+0024: 08                   --   delay
+0025: 05                   --   return
+0026:                      -- 
+0026:                      -- # SUB 1
+0026:                      -- sub frame_1_2
+0026: 02022A               --   2 servo
+0029: 02012A               --   1 servo
+002C: 08                   --   delay
+002D: 05                   --   return
+002E:                      -- 
+002E:                      -- # SUB 2
+002E:                      -- sub frame_0..2
+002E: 02022A               --   2 servo
+0031: 02012A               --   1 servo
+0034: 02002A               --   0 servo
+0037: 08                   --   delay
+0038: 05                   --   return
+0039:                      -- 
+0039:                      -- # SUB 3
+0039:                      -- sub frame_0..5
+0039: 02052A               --   5 servo
+003C: 02042A               --   4 servo
+003F: 02032A               --   3 servo
+0042: 02022A               --   2 servo
+0045: 02012A               --   1 servo
+0048: 02002A               --   0 servo
+004B: 08                   --   delay
+004C: 05                   --   return
+004D:                      -- 
+004D:                      -- # SUB 4
+004D:                      -- sub frame_0..4
+004D: 02042A               --   4 servo
+0050: 02032A               --   3 servo
+0053: 02022A               --   2 servo
+0056: 02012A               --   1 servo
+0059: 02002A               --   0 servo
+005C: 08                   --   delay
+005D: 05                   --   return
+005E:                      -- 
+005E:                      -- # SUB 5
+005E:                      -- sub frame_0..3
+005E: 02032A               --   3 servo
+0061: 02022A               --   2 servo
+0064: 02012A               --   1 servo
+0067: 02002A               --   0 servo
+006A: 08                   --   delay
+006B: 05                   --   return
+006C:                      -- 
+006C:                      -- # SUB 6
+006C:                      -- sub start_ani
+006C:                      --   begin
+006C: 031AB80B2F192E1838178017FA1B0000000000000000000000000000 --     3000 6447 6190 5944 6016 7162 0 
+0088: 80                   --     0 0 0 0 0 0 frame_0..11 # neutral
+0089: 0306DC051F1CF41C81   --     1500 7199 7412 frame_1_2 # look L
+0092: 0308D00700164011071182 --     2000 5632 4416 4359 frame_0..2 # Look R, lift up
+009D: 030EF401751A401F9D1540144018401F83 --     500 6773 8000 5533 5184 6208 8000 frame_0..5 # down caw
+00AE: 030EDC054619491A0B1B85165B1C000083 --     1500 6470 6729 6923 5765 7259 0 frame_0..5 # close
+00BF: 030CE803751A401F52134014401884 --     1000 6773 8000 4946 5184 6208 frame_0..4 # caw again
+00CE: 030CE80375181012A0138017191C84 --     1000 6261 4624 5024 6016 7193 frame_0..4 # look R,body neutral
+00DD: 030ADC0565174419A61CD31585 --     1500 5989 6468 7334 5587 frame_0..3 # look L, wing up
+00EA: 030AC4090016B7141316801785 --     2500 5632 5303 5651 6016 frame_0..3 # body up, wing down
+00F7: 030CF4017D19401F8D134014401884 --     500 6525 8000 5005 5184 6208 frame_0..4 # caw
+0106: 030CD007A3179B19441C8017801C84 --     2000 6051 6555 7236 6016 7296 frame_0..4 # close
+0115: 066C00               --   repeat
+0118: 05                   --   return
+0119:                      -- 
+0119:                      -- # SUB 7
+0119:                      -- sub start_simp
+0119: 031AB80B2F192E1838178017FA1B000000000000000000000000000080 --   3000 6447 6190 5944 6016 7162 0 0 0 0 0 0 0 frame_0..11 # neutral
+0136: 0306DC051F1CF41C81   --   1500 7199 7412 frame_1_2 # look L
+013F: 0308D00700164011071182 --   2000 5632 4416 4359 frame_0..2 # Look R, lift up
+014A: 030EF401751A401F9D1540144018401F83 --   500 6773 8000 5533 5184 6208 8000 frame_0..5 # down caw
+015B:                      -- 
+015B:                      --   # Send txt 'caw1', have to load it backwords due to programming language
+015B: 04050A317761633535353535 --   0x0A 0x31 0x77 0x61 0x63 serial_send_byte serial_send_byte serial_send_byte serial_send_byte serial_send_byte
+0167:                      -- 
+0167: 030EDC054619491A0B1B85165B1C000083 --   1500 6470 6729 6923 5765 7259 0 frame_0..5 # close
+0178:                      -- 
+0178: 030CF401751A401F52134014401884 --   500 6773 8000 4946 5184 6208 frame_0..4 # caw again
+0187:                      --   
+0187:                      --   # Send txt 'caw2', have to load it backwords due to programming language
+0187: 04050A327761633535353535 --   0x0A 0x32 0x77 0x61 0x63 serial_send_byte serial_send_byte serial_send_byte serial_send_byte serial_send_byte
+0193:                      -- 
+0193: 01F40108             --   500 delay
+0197:                      -- 
+0197: 030CE80375181012A0138017191C84 --   1000 6261 4624 5024 6016 7193 frame_0..4 # look R,body neutral
+01A6: 030ADC0565174419A61CD31585 --   1500 5989 6468 7334 5587 frame_0..3 # look L, wing up
+01B3: 030AC4090016B7141316801785 --   2500 5632 5303 5651 6016 frame_0..3 # body up, wing down
+01C0:                      -- 
+01C0: 030CF4017D19401F8D134014401884 --   500 6525 8000 5005 5184 6208 frame_0..4 # caw
+01CF:                      --   
+01CF:                      --   # Send txt 'caw2', have to load it backwords due to programming language
+01CF: 04050A327761633535353535 --   0x0A 0x32 0x77 0x61 0x63 serial_send_byte serial_send_byte serial_send_byte serial_send_byte serial_send_byte
+01DB:                      -- 
+01DB: 030CD007A3179B19441C8017801C84 --   2000 6051 6555 7236 6016 7296 frame_0..4 # close
+01EA: 05                   --   return
+01EB:                      -- 
+01EB:                      -- # SUB 8
+01EB:                      -- sub ani_and_audio_rep
+01EB:                      --   begin
+01EB: 031AB80B2F192E1838178017FA1B0000000000000000000000000000 --     3000 6447 6190 5944 6016 7162 0 
+0207: 80                   --     0 0 0 0 0 0 frame_0..11 # neutral
+0208: 0306DC051F1CF41C81   --     1500 7199 7412 frame_1_2 # look L
+0211: 0308D00700164011071182 --     2000 5632 4416 4359 frame_0..2 # Look R, lift up
+021C: 030EF401751A401F9D1540144018401F83 --     500 6773 8000 5533 5184 6208 8000 frame_0..5 # down caw
+022D:                      -- 
+022D:                      --     # Send txt 'caw1', have to load it backwords due to programming language
+022D: 04050A317761633535353535 --     0x0A 0x31 0x77 0x61 0x63 serial_send_byte serial_send_byte serial_send_byte serial_send_byte serial_send_byte
+0239:                      -- 
+0239: 030EDC054619491A0B1B85165B1C000083 --     1500 6470 6729 6923 5765 7259 0 frame_0..5 # close
+024A:                      -- 
+024A: 030CF401751A401F52134014401884 --     500 6773 8000 4946 5184 6208 frame_0..4 # caw again
+0259:                      --     
+0259:                      --     # Send txt 'caw2', have to load it backwords due to programming language
+0259: 04050A327761633535353535 --     0x0A 0x32 0x77 0x61 0x63 serial_send_byte serial_send_byte serial_send_byte serial_send_byte serial_send_byte
+0265:                      -- 
+0265: 01F40108             --     500 delay
+0269:                      -- 
+0269: 030CE80375181012A0138017191C84 --     1000 6261 4624 5024 6016 7193 frame_0..4 # look R,body neutral
+0278: 030ADC0565174419A61CD31585 --     1500 5989 6468 7334 5587 frame_0..3 # look L, wing up
+0285: 030AC4090016B7141316801785 --     2500 5632 5303 5651 6016 frame_0..3 # body up, wing down
+0292:                      -- 
+0292: 030CF4017D19401F8D134014401884 --     500 6525 8000 5005 5184 6208 frame_0..4 # caw
+02A1:                      --     # Send txt 'caw2', have to load it backwords due to programming language
+02A1: 04050A327761633535353535 --     0x0A 0x32 0x77 0x61 0x63 serial_send_byte serial_send_byte serial_send_byte serial_send_byte serial_send_byte
+02AD:                      -- 
+02AD: 030CD007A3179B19441C8017801C84 --     2000 6051 6555 7236 6016 7296 frame_0..4 # close
+02BC: 06EB01               --   repeat
+02BF: 05                   --   return
+
+Subroutines:
+Hex Decimal Address Name
+00  000     0000    FRAME_0..11
+01  001     0026    FRAME_1_2
+02  002     002E    FRAME_0..2
+03  003     0039    FRAME_0..5
+04  004     004D    FRAME_0..4
+05  005     005E    FRAME_0..3
+06  006     006C    START_ANI
+07  007     0119    START_SIMP
+08  008     01EB    ANI_AND_AUDIO_REP

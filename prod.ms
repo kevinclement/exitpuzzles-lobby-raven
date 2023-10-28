@@ -80,8 +80,7 @@ sub start_ani
 
 # SUB 7
 sub start_simp
-  3000 6447 6190 5944 6016 7162 0 
-  0 0 0 0 0 0 frame_0..11 # neutral
+  3000 6447 6190 5944 6016 7162 0 0 0 0 0 0 0 frame_0..11 # neutral
   1500 7199 7412 frame_1_2 # look L
   2000 5632 4416 4359 frame_0..2 # Look R, lift up
   500 6773 8000 5533 5184 6208 8000 frame_0..5 # down caw
@@ -103,6 +102,7 @@ sub start_simp
   2500 5632 5303 5651 6016 frame_0..3 # body up, wing down
 
   500 6525 8000 5005 5184 6208 frame_0..4 # caw
+  
   # Send txt 'caw2', have to load it backwords due to programming language
   0x0A 0x32 0x77 0x61 0x63 serial_send_byte serial_send_byte serial_send_byte serial_send_byte serial_send_byte
 
