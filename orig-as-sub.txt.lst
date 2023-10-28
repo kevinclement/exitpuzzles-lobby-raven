@@ -108,6 +108,39 @@
 01DB:                      -- 
 01DB: 030CD007A3179B19441C8017801C84 --   2000 6051 6555 7236 6016 7296 frame_0..4 # close
 01EA: 05                   --   return
+01EB:                      -- 
+01EB:                      -- # SUB 8
+01EB:                      -- sub ani_and_audio_rep
+01EB:                      --   begin
+01EB: 031AB80B2F192E1838178017FA1B0000000000000000000000000000 --     3000 6447 6190 5944 6016 7162 0 
+0207: 80                   --     0 0 0 0 0 0 frame_0..11 # neutral
+0208: 0306DC051F1CF41C81   --     1500 7199 7412 frame_1_2 # look L
+0211: 0308D00700164011071182 --     2000 5632 4416 4359 frame_0..2 # Look R, lift up
+021C: 030EF401751A401F9D1540144018401F83 --     500 6773 8000 5533 5184 6208 8000 frame_0..5 # down caw
+022D:                      -- 
+022D:                      --     # Send txt 'caw1', have to load it backwords due to programming language
+022D: 04050A317761633535353535 --     0x0A 0x31 0x77 0x61 0x63 serial_send_byte serial_send_byte serial_send_byte serial_send_byte serial_send_byte
+0239:                      -- 
+0239: 030EDC054619491A0B1B85165B1C000083 --     1500 6470 6729 6923 5765 7259 0 frame_0..5 # close
+024A:                      -- 
+024A: 030CF401751A401F52134014401884 --     500 6773 8000 4946 5184 6208 frame_0..4 # caw again
+0259:                      --     
+0259:                      --     # Send txt 'caw2', have to load it backwords due to programming language
+0259: 04050A327761633535353535 --     0x0A 0x32 0x77 0x61 0x63 serial_send_byte serial_send_byte serial_send_byte serial_send_byte serial_send_byte
+0265:                      -- 
+0265: 01F40108             --     500 delay
+0269:                      -- 
+0269: 030CE80375181012A0138017191C84 --     1000 6261 4624 5024 6016 7193 frame_0..4 # look R,body neutral
+0278: 030ADC0565174419A61CD31585 --     1500 5989 6468 7334 5587 frame_0..3 # look L, wing up
+0285: 030AC4090016B7141316801785 --     2500 5632 5303 5651 6016 frame_0..3 # body up, wing down
+0292:                      -- 
+0292: 030CF4017D19401F8D134014401884 --     500 6525 8000 5005 5184 6208 frame_0..4 # caw
+02A1:                      --     # Send txt 'caw2', have to load it backwords due to programming language
+02A1: 04050A327761633535353535 --     0x0A 0x32 0x77 0x61 0x63 serial_send_byte serial_send_byte serial_send_byte serial_send_byte serial_send_byte
+02AD:                      -- 
+02AD: 030CD007A3179B19441C8017801C84 --     2000 6051 6555 7236 6016 7296 frame_0..4 # close
+02BC: 06EB01               --   repeat
+02BF: 05                   --   return
 
 Subroutines:
 Hex Decimal Address Name
@@ -119,3 +152,4 @@ Hex Decimal Address Name
 05  005     005E    FRAME_0..3
 06  006     006C    START_ANI
 07  007     0119    START_SIMP
+08  008     01EB    ANI_AND_AUDIO_REP
