@@ -1,3 +1,10 @@
+# Servo Mapping:
+#   0: Hip
+#   1: Head Up/Down
+#   2: Head Side
+#   3: Wings
+#   4: Beak
+
 # SUB 0
 sub frame_0..11
   11 servo
@@ -112,6 +119,28 @@ sub triple_caw
   500 6773 8000 5533 5184 6208 frame_0..4 # down caw
   0x31 send_caw_to_pi # 'caw1'
   2000 6051 6555 7236 6016 7296 frame_0..4 # close
+
+  return
+
+# SUB 8
+sub reset_to_neutral
+  2000 6051 6555 7236 6016 7296 0 0 0 0 0 0 0 frame_0..11 # neutral
+  return
+
+# SUB 9
+sub triple_caw_simpler
+  500 6051 6555 7236 6016 7296 0 0 0 0 0 0 0 frame_0..11 # neutral
+  
+  6208 4 servo
+  #5184 3 servo
+  #5533 2 servo
+  #8000 1 servo
+  #6773 0 servo
+
+  2000 delay
+  7296 4 servo
+  2000 delay
+  #3000 6773 8000 5533 5184 6208 frame_0..4 # down caw
 
   return
 
