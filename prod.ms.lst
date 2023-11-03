@@ -83,13 +83,13 @@
 0132:                      -- 
 0132: 030CF401751A401F9D154014401883 --   500 6773 8000 5533 5184 6208 frame_0..4 # down caw
 0141:                      -- 
-0141: 02318A               --   0x31 send_caw_to_pi # 'caw1'
+0141: 023189               --   0x31 send_caw_to_pi # 'caw1'
 0144:                      --   
 0144: 030CDC054619491A0B1B85165B1C83 --   1500 6470 6729 6923 5765 7259 frame_0..4 # close
 0153:                      -- 
 0153: 030CF401751A401F52134014401883 --   500 6773 8000 4946 5184 6208 frame_0..4 # caw again
 0162:                      --   
-0162: 02328A               --   0x32 send_caw_to_pi # 'caw2'
+0162: 023289               --   0x32 send_caw_to_pi # 'caw2'
 0165:                      -- 
 0165: 01F40108             --   500 delay
 0169:                      -- 
@@ -99,28 +99,28 @@
 0192:                      -- 
 0192: 030CF4017D19401F8D134014401883 --   500 6525 8000 5005 5184 6208 frame_0..4 # caw
 01A1:                      -- 
-01A1: 02328A               --   0x32 send_caw_to_pi # 'caw2'
+01A1: 023289               --   0x32 send_caw_to_pi # 'caw2'
 01A4:                      -- 
 01A4: 030CD007A3179B19441C8017801C83 --   2000 6051 6555 7236 6016 7296 frame_0..4 # close
-01B3: 05                   --   return
+01B3: 00                   --   quit
 01B4:                      -- 
 01B4:                      -- # SUB 7
 01B4:                      -- sub triple_caw
 01B4: 031AC800A3179B19441C8017801C000000000000000000000000000080 --   200 6051 6555 7236 6016 7296 0 0 0 0 0 0 0 frame_0..11 # neutral
 01D1:                      --   
 01D1: 030CF401751A401F9D154014401883 --   500 6773 8000 5533 5184 6208 frame_0..4 # down caw
-01E0: 02318A               --   0x31 send_caw_to_pi # 'caw1'
+01E0: 023189               --   0x31 send_caw_to_pi # 'caw1'
 01E3: 030CD007A3179B19441C8017801C83 --   2000 6051 6555 7236 6016 7296 frame_0..4 # close
 01F2:                      -- 
 01F2: 030CF401751A401F9D154014401883 --   500 6773 8000 5533 5184 6208 frame_0..4 # down caw
-0201: 02328A               --   0x32 send_caw_to_pi # 'caw2'
+0201: 023289               --   0x32 send_caw_to_pi # 'caw2'
 0204: 030CD007A3179B19441C8017801C83 --   2000 6051 6555 7236 6016 7296 frame_0..4 # close
 0213:                      -- 
 0213: 030CF401751A401F9D154014401883 --   500 6773 8000 5533 5184 6208 frame_0..4 # down caw
-0222: 02318A               --   0x31 send_caw_to_pi # 'caw1'
+0222: 023189               --   0x31 send_caw_to_pi # 'caw1'
 0225: 030CD007A3179B19441C8017801C83 --   2000 6051 6555 7236 6016 7296 frame_0..4 # close
 0234:                      -- 
-0234: 05                   --   return
+0234: 00                   --   quit
 0235:                      -- 
 0235:                      -- # SUB 8
 0235:                      -- sub reset_to_neutral
@@ -128,30 +128,14 @@
 0252: 05                   --   return
 0253:                      -- 
 0253:                      -- # SUB 9
-0253:                      -- sub triple_caw_simpler
-0253: 031AF401A3179B19441C8017801C000000000000000000000000000080 --   500 6051 6555 7236 6016 7296 0 0 0 0 0 0 0 frame_0..11 # neutral
-0270:                      --   
-0270: 0304401804002A       --   6208 4 servo
-0277:                      --   #5184 3 servo
-0277:                      --   #5533 2 servo
-0277:                      --   #8000 1 servo
-0277:                      --   #6773 0 servo
-0277:                      -- 
-0277: 01D00708             --   2000 delay
-027B: 0304801C04002A       --   7296 4 servo
-0282: 01D00708             --   2000 delay
-0286:                      --   #3000 6773 8000 5533 5184 6208 frame_0..4 # down caw
-0286:                      -- 
-0286: 05                   --   return
-0287:                      -- 
-0287:                      -- sub send_caw_to_pi
-0287:                      --   # Send txt 'caw2', have to load it backwords due to programming language
-0287: 040377616335353535   --   0x77 0x61 0x63 serial_send_byte serial_send_byte serial_send_byte serial_send_byte 
-0290:                      -- 
-0290:                      --   # newline
-0290: 020A35               --   0x0A serial_send_byte
-0293:                      --    
-0293: 05                   --   return
+0253:                      -- sub send_caw_to_pi
+0253:                      --   # Send txt 'caw2', have to load it backwords due to programming language
+0253: 040377616335353535   --   0x77 0x61 0x63 serial_send_byte serial_send_byte serial_send_byte serial_send_byte 
+025C:                      -- 
+025C:                      --   # newline
+025C: 020A35               --   0x0A serial_send_byte
+025F:                      --    
+025F: 05                   --   return
 
 Subroutines:
 Hex Decimal Address Name
@@ -164,5 +148,4 @@ Hex Decimal Address Name
 06  006     0101    START_SIMP
 07  007     01B4    TRIPLE_CAW
 08  008     0235    RESET_TO_NEUTRAL
-09  009     0253    TRIPLE_CAW_SIMPLER
-0A  010     0287    SEND_CAW_TO_PI
+09  009     0253    SEND_CAW_TO_PI

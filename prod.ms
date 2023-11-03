@@ -102,7 +102,7 @@ sub start_simp
   0x32 send_caw_to_pi # 'caw2'
 
   2000 6051 6555 7236 6016 7296 frame_0..4 # close
-  return
+  quit
 
 # SUB 7
 sub triple_caw
@@ -120,7 +120,7 @@ sub triple_caw
   0x31 send_caw_to_pi # 'caw1'
   2000 6051 6555 7236 6016 7296 frame_0..4 # close
 
-  return
+  quit
 
 # SUB 8
 sub reset_to_neutral
@@ -128,22 +128,6 @@ sub reset_to_neutral
   return
 
 # SUB 9
-sub triple_caw_simpler
-  500 6051 6555 7236 6016 7296 0 0 0 0 0 0 0 frame_0..11 # neutral
-  
-  6208 4 servo
-  #5184 3 servo
-  #5533 2 servo
-  #8000 1 servo
-  #6773 0 servo
-
-  2000 delay
-  7296 4 servo
-  2000 delay
-  #3000 6773 8000 5533 5184 6208 frame_0..4 # down caw
-
-  return
-
 sub send_caw_to_pi
   # Send txt 'caw2', have to load it backwords due to programming language
   0x77 0x61 0x63 serial_send_byte serial_send_byte serial_send_byte serial_send_byte 
